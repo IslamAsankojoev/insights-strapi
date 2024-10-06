@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "current_accounts",
+  "info": {
+    "singularName": "current-account",
+    "pluralName": "current-accounts",
+    "displayName": "CurrentAccount"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    }
+  }
+}

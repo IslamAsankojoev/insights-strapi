@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "telegramm_chat_ids",
+  "info": {
+    "singularName": "telegramm-chat-id",
+    "pluralName": "telegramm-chat-ids",
+    "displayName": "Telegramm Chat Ids"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "chat_id": {
+      "type": "string"
+    }
+  }
+}
