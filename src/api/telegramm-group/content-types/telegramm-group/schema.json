@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "telegramm_groups",
+  "info": {
+    "singularName": "telegramm-group",
+    "pluralName": "telegramm-groups",
+    "displayName": "Telegramm Group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "chat_id": {
+      "type": "string"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account",
+      "inversedBy": "telegramm_group"
+    }
+  }
+}

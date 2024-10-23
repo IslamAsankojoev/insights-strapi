@@ -33,6 +33,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "telegramm_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::telegramm-group.telegramm-group",
+      "mappedBy": "account"
     }
   }
 }

@@ -501,6 +501,10 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     marker: Schema.Attribute.String & Schema.Attribute.Required;
     active: Schema.Attribute.Boolean;
     logo: Schema.Attribute.Media<'files' | 'images'>;
+    telegramm_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::telegramm-group.telegramm-group'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -568,6 +572,36 @@ export interface ApiTelegrammChatIdTelegrammChatId
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::telegramm-chat-id.telegramm-chat-id'
+    >;
+  };
+}
+
+export interface ApiTelegrammGroupTelegrammGroup
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'telegramm_groups';
+  info: {
+    singularName: 'telegramm-group';
+    pluralName: 'telegramm-groups';
+    displayName: 'Telegramm Group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    chat_id: Schema.Attribute.String;
+    account: Schema.Attribute.Relation<'oneToOne', 'api::account.account'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::telegramm-group.telegramm-group'
     >;
   };
 }
@@ -950,6 +984,7 @@ declare module '@strapi/strapi' {
       'api::account.account': ApiAccountAccount;
       'api::current-account.current-account': ApiCurrentAccountCurrentAccount;
       'api::telegramm-chat-id.telegramm-chat-id': ApiTelegrammChatIdTelegrammChatId;
+      'api::telegramm-group.telegramm-group': ApiTelegrammGroupTelegrammGroup;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
