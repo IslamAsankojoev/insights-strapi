@@ -502,7 +502,7 @@ export interface ApiAccountAccount extends Struct.CollectionTypeSchema {
     active: Schema.Attribute.Boolean;
     logo: Schema.Attribute.Media<'files' | 'images'>;
     telegramm_group: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::telegramm-group.telegramm-group'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -583,6 +583,7 @@ export interface ApiTelegrammGroupTelegrammGroup
     singularName: 'telegramm-group';
     pluralName: 'telegramm-groups';
     displayName: 'Telegramm Group';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -590,7 +591,7 @@ export interface ApiTelegrammGroupTelegrammGroup
   attributes: {
     name: Schema.Attribute.String;
     chat_id: Schema.Attribute.String;
-    account: Schema.Attribute.Relation<'oneToOne', 'api::account.account'>;
+    accounts: Schema.Attribute.Relation<'oneToMany', 'api::account.account'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "telegramm-group",
     "pluralName": "telegramm-groups",
-    "displayName": "Telegramm Group"
+    "displayName": "Telegramm Group",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,11 +18,11 @@
     "chat_id": {
       "type": "string"
     },
-    "account": {
+    "accounts": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::account.account",
-      "inversedBy": "telegramm_group"
+      "mappedBy": "telegramm_group"
     }
   }
 }

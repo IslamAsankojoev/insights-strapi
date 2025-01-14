@@ -36,9 +36,9 @@
     },
     "telegramm_group": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::telegramm-group.telegramm-group",
-      "mappedBy": "account"
+      "inversedBy": "accounts"
     }
   }
 }
